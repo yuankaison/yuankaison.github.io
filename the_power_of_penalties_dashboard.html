@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power of Penalties: Negativity-Aware Incentives Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Marked.js for clean AI markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbars for dashboard widgets */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-500/30 selection:text-indigo-200">
+
+    <!-- Top Sticky Header -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/60 px-4 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-rose-500 flex items-center justify-center font-extrabold text-white text-lg shadow-lg shadow-indigo-500/20">
+                    NAI
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        The Power of Penalties
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">Negativity-Aware Incentives with Integrated Gemini AI Co-Pilot</p>
+                </div>
+            </div>
+            
+            <nav class="flex flex-wrap items-center justify-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800/60 text-xs sm:text-sm">
+                <a href="#abstract" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all hover:bg-slate-800/40">Paper</a>
+                <a href="#theory" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all hover:bg-slate-800/40">Theory</a>
+                <a href="#ai-innovation" class="px-3 py-1.5 rounded-lg text-indigo-400 font-semibold bg-indigo-500/10 border border-indigo-500/20 shadow-inner flex items-center gap-1">
+                    <svg class="h-3 w-3 animate-pulse text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 100-2h-1a1 1 0 100 2h1zM5.05 6.464a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM5 10a1 1 0 100-2H4a1 1 0 100 2h1zM8 11a1 1 0 100-2H7a1 1 0 100 2h1zM12 11a1 1 0 100-2h-1a1 1 0 100 2h1zM11 15a1 1 0 10-2 0v1a1 1 0 102 0v-1zM14.243 14.243a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM16.243 16.243a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707z"></path></svg>
+                    AI Co-Pilot Hub
+                </a>
+                <a href="#simulator" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all hover:bg-slate-800/40">Interactive Sandbox</a>
+                <a href="#impact" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all hover:bg-slate-800/40">Platform Impact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 lg:px-8 py-8 space-y-12">
+        
+        <!-- Hero Section with Paper Info & Quick Stats -->
+        <section id="abstract" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-8 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+                    WWW '26 • Dubai, UAE
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                    The Power of Penalties: <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-rose-400 bg-clip-text text-transparent">Negativity-Aware Incentives</span> for High-Quality Crowdsourced Data Labeling
+                </h2>
+                
+                <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                    <div><strong class="text-slate-200">Authors:</strong> Kai Wang, Runze Wu*, Yu Xiong, Haifeng Sun, Anran Li, Shaojie Tang, Changjie Fan, Xiang-Yang Li*</div>
+                    <div><strong class="text-slate-200">Affiliations:</strong> USTC, NetEase Fuxi AI Lab, University at Buffalo</div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/60 relative overflow-hidden group">
+                    <div class="absolute -right-24 -bottom-24 w-48 h-48 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition-all"></div>
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-2">Abstract</h3>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        High-quality data labeling is essential for training robust ML models; however, existing reward allocation methods ignore fraud or assume non-negative worker utility, failing to penalize harmful contributions. To address this, we propose the <strong>Negativity-Aware Incentive (NAI)</strong> mechanism. It introduces two components: First, the <strong>Ability-Result Characteristic Function (AR-CF)</strong> adapts Shapley value theory through signed valuation to capture both positive and negative contributions. Second, a <strong>dynamic stake pool mechanism</strong> employs pre-commitment economics to balance fairness and operational efficiency. Deployed on NetEase Youling (430,000 registered workers), NAI achieves 16.6% accuracy improvement on video tasks and up to 33.9% fraud reduction.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-transparent border border-indigo-500/20 shadow-xl shadow-indigo-950/20">
+                    <div class="text-xs text-indigo-400 font-bold uppercase tracking-wider mb-1">Video Labeling Accuracy</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-baseline gap-1">
+                        +16.6% <span class="text-xs text-emerald-400 font-semibold">▲ SOTA</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Consistent quality improvements observed across multimodal domains.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-rose-500/10 to-transparent border border-rose-500/20 shadow-xl shadow-rose-950/20">
+                    <div class="text-xs text-rose-400 font-bold uppercase tracking-wider mb-1">Fraud Reduction</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-baseline gap-1">
+                        -33.9% <span class="text-xs text-rose-400 font-semibold">▼ Drop</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Deters low-effort, random clicking, and strategic malicious collusion.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800/60 col-span-2 lg:col-span-1">
+                    <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Platform Deployment Scale</div>
+                    <div class="text-lg font-bold text-slate-200">NetEase Youling</div>
+                    <div class="text-xs text-slate-400 mt-1">
+                        <strong class="text-slate-300">430K+</strong> registered users, <strong class="text-slate-300">80K</strong> monthly active. Real-time A/B tests validate the economic feasibility.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theoretical Foundations Section -->
+        <section id="theory" class="space-y-6">
+            <div class="border-b border-slate-800/80 pb-4">
+                <h3 class="text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                    <span class="text-indigo-500">01.</span> Game-Theoretic Framework & Math
+                </h3>
+                <p class="text-sm text-slate-400">How NAI defines contribution using Signed Valuations and Dynamic Parameters.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Ability-Result Characteristic Function -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700/60 transition-all space-y-4">
+                    <div class="h-10 w-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center font-bold text-indigo-400">
+                        v(S)
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-100">Ability-Result CF (AR-CF)</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Models both worker abilities and raw correct/incorrect decisions. Rather than assuming non-negative inputs, the characteristic value maps to polarized domains.
+                    </p>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 mono text-xs text-slate-300 text-center">
+                        v(S) = <span class="text-indigo-400 font-semibold">\frac{1}{|S|}</span> &sum;<sub>i &in; S</sub> (z<sub>i</sub>q<sub>i</sub> - (1-z<sub>i</sub>)q<sub>i</sub>)
+                    </div>
+                    <div class="text-xs text-slate-500">
+                        Where <span class="mono text-slate-300">z<sub>i</sub> &in; {0,1}</span> represents correctness, and <span class="mono text-slate-300">q<sub>i</sub> &in; (0,1)</span> is worker ability.
+                    </div>
+                </div>
+
+                <!-- Card 2: Bounded Rationality & Signed Shapley -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700/60 transition-all space-y-4">
+                    <div class="h-10 w-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center font-bold text-purple-400">
+                        &phi;<sub>i</sub>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-100">Signed Shapley Valuation</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Evaluates the marginal contribution of worker <span class="italic">i</span> across all possible cooperative coalitions <span class="mono">S</span>. If adding a worker degrades coalition correctness, they score a negative marginal share.
+                    </p>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 mono text-[10px] text-slate-300 text-center overflow-x-auto">
+                        &phi;<sub>i</sub>(v) = &sum; <span class="text-purple-400 font-semibold">\frac{|S|!(n - |S| - 1)!}{n!}</span> [v(S&cup;{i}) - v(S)]
+                    </div>
+                    <div class="text-xs text-slate-500">
+                        Symmetrical reward-penalty: rewards expertise while penalizing sloppy, low-quality, or fraudulent actions.
+                    </div>
+                </div>
+
+                <!-- Card 3: Bounded Utility & The Stake Pool -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700/60 transition-all space-y-4">
+                    <div class="h-10 w-10 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center font-bold text-rose-400">
+                        S<sub>i</sub>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-100">Dynamic Stake Pool</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Pre-commitment mechanics block malicious actors. Workers post stakes before receiving tasks. Low-ability workers post larger collateral, creating strong quality-risk incentives.
+                    </p>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 mono text-xs text-slate-300 text-center">
+                        S<sub>i</sub> = <span class="text-rose-400 font-semibold">T &middot; &alpha; &middot; p (1 - q<sub>i</sub>)</span>
+                    </div>
+                    <div class="text-xs text-slate-500">
+                        Where <span class="mono text-slate-300">T</span> is expected tasks, <span class="mono text-slate-300">&alpha;</span> is the penalty factor, and <span class="mono text-slate-300">p</span> is standard task cost.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Innovation Hub Section -->
+        <section id="ai-innovation" class="space-y-6">
+            <div class="border-b border-slate-800/85 pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-lg text-xs font-bold uppercase tracking-widest animate-pulse">INTEGRATED</span>
+                    <h3 class="text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                        <span class="text-indigo-500">02.</span> AI Innovation Playground & Co-Pilot Hub
+                    </h3>
+                </div>
+                <p class="text-sm text-slate-400 mt-1">Harness Gemini 3 Flash to generate custom sandbox attack scenarios or interrogate the paper's mechanism details.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- AI Scenario Generator Block (Left) -->
+                <div class="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/90 shadow-2xl space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="h-8 w-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-200">AI Attack & Scenario Generator</h4>
+                            <p class="text-xs text-slate-500">Generate complex coalitions with structured schema returns</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold text-slate-400 block">Choose an adversarial design / target setup:</label>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <button onclick="setScenarioPreset('Sybil attack with 4 bot farms and 2 highly accurate experts')" class="p-2 text-left bg-slate-900/60 hover:bg-slate-900 hover:border-slate-700 border border-slate-800/80 rounded-lg text-slate-300 transition-all">Sybil Bot Farm Invaders</button>
+                            <button onclick="setScenarioPreset('3 sloppy experts with 0.9 skill making mistakes, and 3 hard-working novices with 0.5 skill being correct')" class="p-2 text-left bg-slate-900/60 hover:bg-slate-900 hover:border-slate-700 border border-slate-800/80 rounded-lg text-slate-300 transition-all">Sloppy Expert Rebellion</button>
+                            <button onclick="setScenarioPreset('Perfect synergy coalition with 5 workers from 0.7 to 0.95 all answering correctly')" class="p-2 text-left bg-slate-900/60 hover:bg-slate-900 hover:border-slate-700 border border-slate-800/80 rounded-lg text-slate-300 transition-all">Perfect Synergy Union</button>
+                            <button onclick="setScenarioPreset('High-risk deployment: 6 highly volatile workers around 0.6 skill showing random correctness')" class="p-2 text-left bg-slate-900/60 hover:bg-slate-900 hover:border-slate-700 border border-slate-800/80 rounded-lg text-slate-300 transition-all">High-Volatility Chaos</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="ai-scenario-prompt" class="text-xs font-semibold text-slate-400 block">Or draft a custom scenario description:</label>
+                        <textarea id="ai-scenario-prompt" rows="3" class="w-full bg-slate-950 border border-slate-800/80 rounded-xl p-3 text-xs text-slate-300 focus:outline-none focus:border-indigo-500/80 transition-all placeholder:text-slate-600" placeholder="e.g., A collusive cluster of 3 workers with identical mid-level skills who fail task, and one high-precision auditor..."></textarea>
+                    </div>
+
+                    <button id="generate-scenario-btn" onclick="generateAIScenario()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-indigo-600/10 flex items-center justify-center gap-1.5 transition-all">
+                        <span id="gen-btn-spinner" class="hidden h-3 w-3 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                        <svg id="gen-btn-icon" class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <span>Synthesize & Load into Sandbox</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Paper Co-Pilot / QA Chatbot (Right) -->
+                <div class="lg:col-span-7 p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/90 shadow-2xl flex flex-col justify-between h-[420px]">
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-200">Interactive Paper Co-Pilot</h4>
+                                <p class="text-[10px] text-slate-500">Ask detailed proofs, formulations or deployment metrics</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">Gemini 3 Connected</span>
+                        </div>
+                    </div>
+
+                    <!-- Conversation Window -->
+                    <div id="co-pilot-chat" class="flex-1 overflow-y-auto space-y-3 my-4 pr-1 text-xs scroll-smooth">
+                        <!-- Initial system greeting -->
+                        <div class="flex gap-2 items-start">
+                            <div class="h-6 w-6 rounded-full bg-slate-800 border border-slate-700/80 flex items-center justify-center text-[10px] text-slate-300 font-extrabold flex-shrink-0">AI</div>
+                            <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-850 text-slate-300 leading-relaxed max-w-[85%]">
+                                Greetings! I am your <strong>NAI Mechanism Co-Pilot</strong>. I can walk you through the Ability-Result Characteristic Function (AR-CF) proofs, derive the optimal threshold ability $q^*$, or discuss how our deployment on NetEase Youling reduced crowdsourcing fraud. Ask me anything!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form panel -->
+                    <div class="flex gap-2">
+                        <input id="chat-input" type="text" onkeydown="handleChatKey(event)" class="flex-1 bg-slate-950 border border-slate-850 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500 transition-all placeholder:text-slate-600" placeholder="e.g., How does AR-CF compare to CW-CF?">
+                        <button onclick="sendChatMessage()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-600/10 transition-all">Send</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive NAI Simulator Section -->
+        <section id="simulator" class="space-y-6">
+            <div class="border-b border-slate-800/80 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                        <span class="text-indigo-500">03.</span> Live Sandbox: Traditional vs. NAI Incentives
+                    </h3>
+                    <p class="text-sm text-slate-400">Tweak worker competencies, toggle correct/incorrect labels, and tune game parameters to see instant payout shifts.</p>
+                </div>
+                <!-- Presets Toggle -->
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider flex items-center">Presets:</span>
+                    <button onclick="loadPreset('default')" class="px-3 py-1 rounded bg-slate-900 border border-slate-800 hover:border-indigo-500/50 text-xs font-medium text-slate-300 hover:text-white transition-all">Paper Default</button>
+                    <button onclick="loadPreset('sloppyExpert')" class="px-3 py-1 rounded bg-slate-900 border border-slate-800 hover:border-indigo-500/50 text-xs font-medium text-slate-300 hover:text-white transition-all">Sloppy Experts</button>
+                    <button onclick="loadPreset('sybilInvasion')" class="px-3 py-1 rounded bg-slate-900 border border-slate-800 hover:border-indigo-500/50 text-xs font-medium text-slate-300 hover:text-white transition-all">Sybil/Bot Invasion</button>
+                    <button onclick="loadPreset('highQuality')" class="px-3 py-1 rounded bg-slate-900 border border-slate-800 hover:border-indigo-500/50 text-xs font-medium text-slate-300 hover:text-white transition-all">High Synergy</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Left Control Panel (Columns 1-7) -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Global Param Regulators -->
+                    <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 space-y-4">
+                        <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Economic & Mechanism Controls</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <!-- Penalty Slider -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <label class="text-xs font-semibold text-slate-400 flex items-center gap-1">
+                                        Penalty Factor (&alpha;)
+                                    </label>
+                                    <span id="alpha-val" class="text-xs font-bold text-rose-400 mono bg-rose-500/10 px-1.5 py-0.5 rounded">0.50</span>
+                                </div>
+                                <input type="range" id="param-alpha" min="0" max="2" step="0.05" value="0.5" oninput="updateSimulation()" class="w-full accent-rose-500 bg-slate-850 rounded-lg appearance-none h-1.5">
+                                <p class="text-[10px] text-slate-500">Multiplier for penalties on poor/fraudulent work.</p>
+                            </div>
+
+                            <!-- Reward Redistribution Slider -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <label class="text-xs font-semibold text-slate-400 flex items-center gap-1">
+                                        Redistribution (&beta;)
+                                    </label>
+                                    <span id="beta-val" class="text-xs font-bold text-emerald-400 mono bg-emerald-500/10 px-1.5 py-0.5 rounded">0.60</span>
+                                </div>
+                                <input type="range" id="param-beta" min="0" max="1" step="0.05" value="0.6" oninput="updateSimulation()" class="w-full accent-emerald-500 bg-slate-850 rounded-lg appearance-none h-1.5">
+                                <p class="text-[10px] text-slate-500">Fraction of collected penalties paid to good workers.</p>
+                            </div>
+
+                            <!-- Base Task Price -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <label class="text-xs font-semibold text-slate-400 flex items-center gap-1">
+                                        Task Price ($p$)
+                                    </label>
+                                    <span id="price-val" class="text-xs font-bold text-indigo-400 mono bg-indigo-500/10 px-1.5 py-0.5 rounded">$10.00</span>
+                                </div>
+                                <input type="range" id="param-price" min="5" max="50" step="1" value="10" oninput="updateSimulation()" class="w-full accent-indigo-500 bg-slate-850 rounded-lg appearance-none h-1.5">
+                                <p class="text-[10px] text-slate-500">Base budget allocated for worker rewards.</p>
+                            </div>
+                        </div>
+
+                        <!-- Mathematical Threshold Output -->
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/85 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Calculated Threshold Ability Level (<span class="mono">q*</span>):</span>
+                            <span id="q-star-indicator" class="font-bold text-indigo-400 mono">0.53</span>
+                        </div>
+                    </div>
+
+                    <!-- Workers List / Interactive Configurator -->
+                    <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider font-semibold">Worker Coalition Roster (S)</h4>
+                            <span class="text-xs text-slate-500">Supports up to 6 workers for exact factorial analysis</span>
+                        </div>
+
+                        <div class="space-y-3" id="workers-list">
+                            <!-- Dynamic rendering via JS -->
+                        </div>
+
+                        <!-- Add / Remove Quick controls -->
+                        <div class="flex justify-between items-center pt-2">
+                            <button onclick="addWorker()" class="px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-semibold transition-all">
+                                + Add Custom Worker
+                            </button>
+                            <span class="text-xs text-slate-500" id="coalition-size-indicator">Current Coalition Size: 6</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Output Panel: Visualizations & Analytics (Columns 8-12) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Reward Differential / Chart Display -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-850 shadow-2xl relative overflow-hidden flex flex-col justify-between h-full space-y-6">
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Comparative Reward Outputs</h4>
+                            <p class="text-xs text-slate-400 mt-1">Comparing NAI (Negativity-Aware) directly against Traditional performance rewards.</p>
+                        </div>
+
+                        <!-- Bar Graph Container -->
+                        <div class="space-y-4 py-2" id="comparison-graph">
+                            <!-- Render dynamically in JavaScript for zero dependencies & robust performance -->
+                        </div>
+
+                        <!-- Analytical Insights / Real-time Game Log -->
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+                                <span>Theoretical Equilibrium Insights</span>
+                                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            </h5>
+                            <div class="text-xs text-slate-300 leading-relaxed space-y-1" id="sandbox-insights">
+                                <!-- Generated automatically in Javascript depending on worker behavior -->
+                            </div>
+                        </div>
+
+                        <!-- Key Legend -->
+                        <div class="flex justify-between items-center pt-2 text-[11px] text-slate-400 border-t border-slate-850">
+                            <div class="flex items-center gap-1.5">
+                                <span class="h-2 w-2 bg-indigo-500 rounded-full"></span>
+                                <span>NAI Net Pay</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="h-2 w-2 bg-slate-600 rounded-full"></span>
+                                <span>Traditional Payout</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="h-2 w-2 bg-rose-500 rounded-full"></span>
+                                <span>NAI Penalties</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experimental Performance Data Visualization -->
+        <section id="impact" class="space-y-6">
+            <div class="border-b border-slate-800/80 pb-4">
+                <h3 class="text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                    <span class="text-indigo-500">04.</span> Large-Scale Platform Deployment Impact
+                </h3>
+                <p class="text-sm text-slate-400">Performance metrics evaluated across multimodal datasets and active users on NetEase Youling.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-indigo-400 tracking-wider">Task Modality: Video Selection</span>
+                        <h4 class="font-bold text-lg text-slate-100 mt-1">Labeling Quality Boost</h4>
+                    </div>
+                    <div class="my-6">
+                        <div class="text-4xl font-extrabold text-white tracking-tight">+16.6%</div>
+                        <p class="text-xs text-slate-400 mt-1">Over established SOTA frameworks (majority voting, EM algorithms).</p>
+                    </div>
+                    <div class="w-full bg-slate-800/40 rounded-full h-1.5">
+                        <div class="bg-indigo-500 h-1.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-rose-400 tracking-wider">Worker Security</span>
+                        <h4 class="font-bold text-lg text-slate-100 mt-1">Fraud Reduction</h4>
+                    </div>
+                    <div class="my-6">
+                        <div class="text-4xl font-extrabold text-white tracking-tight">33.9% Drop</div>
+                        <p class="text-xs text-slate-400 mt-1">Decline in passive negligence and automated script submissions.</p>
+                    </div>
+                    <div class="w-full bg-slate-800/40 rounded-full h-1.5">
+                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 68%"></div>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">A/B Testing Baseline</span>
+                        <h4 class="font-bold text-lg text-slate-100 mt-1">Beginner Task Efficiency</h4>
+                    </div>
+                    <div class="my-6">
+                        <div class="text-4xl font-extrabold text-white tracking-tight">+59.6%</div>
+                        <p class="text-xs text-slate-400 mt-1">Quality elevation without imposing direct penalty filters.</p>
+                    </div>
+                    <div class="w-full bg-slate-800/40 rounded-full h-1.5">
+                        <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-purple-400 tracking-wider">Operational Cost</span>
+                        <h4 class="font-bold text-lg text-slate-100 mt-1">Platform Savings</h4>
+                    </div>
+                    <div class="my-6">
+                        <div class="text-4xl font-extrabold text-white tracking-tight">-28.4%</div>
+                        <p class="text-xs text-slate-400 mt-1">Lower redundant tasks and verification spending.</p>
+                    </div>
+                    <div class="w-full bg-slate-800/40 rounded-full h-1.5">
+                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 72%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Detailed Multimodal Dataset Performance Grid -->
+            <div class="p-6 rounded-2xl bg-slate-900/20 border border-slate-800/80 space-y-4">
+                <h4 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Multimodal Quality Performance Matrix (vs standard Baselines)</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+                        <thead class="bg-slate-900/60 border-b border-slate-800/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                            <tr>
+                                <th class="p-3">Data Modality</th>
+                                <th class="p-3">Dataset Details</th>
+                                <th class="p-3 text-center">Baseline Accuracy</th>
+                                <th class="p-3 text-center">NAI Accuracy</th>
+                                <th class="p-3 text-right">Incentive Fairness (Gini Index)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/40">
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-200">Video selection</td>
+                                <td class="p-3 text-slate-400">80 video clips (Youling system)</td>
+                                <td class="p-3 text-center">78.4%</td>
+                                <td class="p-3 text-center text-emerald-400 font-bold">95.0% (+16.6%)</td>
+                                <td class="p-3 text-right font-medium">0.185</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-200">Audio classification</td>
+                                <td class="p-3 text-slate-400">120 gaming vocal clips</td>
+                                <td class="p-3 text-center">82.1%</td>
+                                <td class="p-3 text-center text-emerald-400 font-bold">91.8% (+9.7%)</td>
+                                <td class="p-3 text-right font-medium">0.201</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-200">NLP Sentiment</td>
+                                <td class="p-3 text-slate-400">300 forum posts datasets</td>
+                                <td class="p-3 text-center">85.3%</td>
+                                <td class="p-3 text-center text-emerald-400 font-bold">94.1% (+8.8%)</td>
+                                <td class="p-3 text-right font-medium">0.224</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-slate-200">Image Annotation</td>
+                                <td class="p-3 text-slate-400">500 image segmentation tests</td>
+                                <td class="p-3 text-center">80.6%</td>
+                                <td class="p-3 text-center text-emerald-400 font-bold">92.4% (+11.8%)</td>
+                                <td class="p-3 text-right font-medium">0.198</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation / References Panel -->
+        <section id="citation" class="space-y-4">
+            <div class="border-b border-slate-800/80 pb-4">
+                <h3 class="text-xl font-bold tracking-tight text-white">How to Cite this Paper</h3>
+                <p class="text-xs text-slate-400">Cite the official ACM Web Conference (WWW '26) publication.</p>
+            </div>
+
+            <div class="relative group bg-slate-900 border border-slate-800 rounded-2xl p-6 overflow-hidden">
+                <button onclick="copyToClipboard()" class="absolute right-4 top-4 px-3 py-1 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 border border-indigo-500/20 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                    Copy BibTeX
+                </button>
+                <pre class="text-xs text-slate-300 overflow-x-auto mono max-w-full" id="bibtex-block">@inproceedings{wang2026power,
+  title={The Power of Penalties: Negativity-Aware Incentives for High-Quality Crowdsourced Data Labeling},
+  author={Wang, Kai and Wu, Runze and Xiong, Yu and Sun, Haifeng and Li, Anran and Tang, Shaojie and Fan, Changjie and Li, Xiang-Yang},
+  booktitle={Proceedings of the ACM Web Conference 2026 (WWW '26)},
+  year={2026},
+  location={Dubai, United Arab Emirates},
+  publisher={ACM},
+  doi={10.1145/3774904.3792170}
+}</pre>
+            </div>
+        </section>
+
+        <!-- Custom toast alert element -->
+        <div id="toast" class="fixed bottom-6 right-6 px-4 py-3 bg-slate-900 border border-slate-800 shadow-2xl rounded-xl text-slate-200 text-xs font-semibold translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-2 z-50">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span id="toast-message">Copied Successfully!</span>
+        </div>
+
+    </main>
+
+    <script>
+        // Initial simulated workers
+        let workers = [
+            { id: 1, name: "Worker A", ability: 0.8, correct: true },
+            { id: 2, name: "Worker B", ability: 0.5, correct: false },
+            { id: 3, name: "Worker C", ability: 0.9, correct: true },
+            { id: 4, name: "Worker D", ability: 0.3, correct: false },
+            { id: 5, name: "Worker E", ability: 0.7, correct: false },
+            { id: 6, name: "Worker F", ability: 0.6, correct: true }
+        ];
+
+        let nextWorkerId = 7;
+
+        // Exponential backoff helper for Gemini calls
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok && response.status === 429 && retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                return response;
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                throw error;
+            }
+        }
+
+        // Set prompt presets helper
+        function setScenarioPreset(text) {
+            document.getElementById('ai-scenario-prompt').value = text;
+        }
+
+        // Call Gemini to generate a structured JSON worker array
+        async function generateAIScenario() {
+            const promptInput = document.getElementById('ai-scenario-prompt').value.trim();
+            if (!promptInput) {
+                showToast("Please write or select a scenario preset first.");
+                return;
+            }
+
+            // Disable button, show loading spinners
+            const btn = document.getElementById('generate-scenario-btn');
+            const spinner = document.getElementById('gen-btn-spinner');
+            const icon = document.getElementById('gen-btn-icon');
+            btn.disabled = true;
+            spinner.classList.remove('hidden');
+            icon.classList.add('hidden');
+
+            const apiKey = ""; // Canvas injected runtime platform key
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const systemPrompt = `You are a game theorist specializing in crowdsourcing system simulation. Your goal is to generate a realistic user coalition profile that simulates the user's scenario. Return EXACTLY a JSON array of 3 to 6 workers.
+            Each worker object must strictly follow this structure:
+            {
+               "name": "Distinct string identifier",
+               "ability": float between 0.05 and 0.95 representing individual accuracy skill,
+               "correct": boolean representing if their submitted task label is correct
+            }`;
+
+            const payload = {
+                contents: [{ parts: [{ text: `Generate a worker setup matching this description: ${promptInput}` }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                "name": { "type": "STRING" },
+                                "ability": { "type": "NUMBER" },
+                                "correct": { "type": "BOOLEAN" }
+                            },
+                            "required": ["name", "ability", "correct"]
+                        }
+                    }
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                const jsonText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (jsonText) {
+                    const cleanList = JSON.parse(jsonText);
+                    if (Array.isArray(cleanList) && cleanList.length >= 2) {
+                        // Load into workers state
+                        workers = cleanList.slice(0, 6).map((item, idx) => ({
+                            id: nextWorkerId++,
+                            name: item.name || `Worker ${idx + 1}`,
+                            ability: parseFloat(item.ability) || 0.5,
+                            correct: !!item.correct
+                        }));
+                        updateSimulation();
+                        showToast("AI Sandbox configuration loaded successfully!");
+                    } else {
+                        showToast("Failed to parse valid worker array.");
+                    }
+                } else {
+                    showToast("No response returned from the AI model.");
+                }
+            } catch (err) {
+                console.error(err);
+                showToast("Connection to Gemini API failed.");
+            } finally {
+                btn.disabled = false;
+                spinner.classList.add('hidden');
+                icon.classList.remove('hidden');
+            }
+        }
+
+        let chatHistory = [];
+
+        async function sendChatMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const messageText = chatInput.value.trim();
+            if (!messageText) return;
+
+            // Render User bubble immediately
+            appendChatBubble('User', messageText);
+            chatInput.value = "";
+
+            // Create loading placeholder
+            const loadBubbleId = appendChatBubble('AI', "Thinking...", true);
+
+            const apiKey = ""; // Injected dynamically at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const systemPrompt = `You are a co-pilot for the research paper 'The Power of Penalties: Negativity-Aware Incentives for High-Quality Crowdsourced Data Labeling'.
+            Use the following context to answer with deep precision:
+            - **Abstract:** NAI uses Signed Shapley values (Ability-Result Characteristic Function: AR-CF) and Dynamic Stake Pools. Tested on NetEase Youling (430K users, 80K MAU). +16.6% video accuracy, -33.9% fraud reduction.
+            - **AR-CF formula:** v(S) = (1/|S|) * Sum_{i in S} (z_i * q_i - (1-z_i)*q_i). It captures both positive and negative values.
+            - **Signed Shapley:** phi_i(v) = Sum (|S|! * (n-|S|-1)!) / n! * [v(S union {i}) - v(S)]. Holds competent workers accountable if they are sloppy ('greater ability, greater responsibility').
+            - **Optimal Threshold q*:** q* = (alpha * mu) / [alpha * mu + (beta * alpha + 1) * (1 - mu)]. Used to identify when expected utility is non-negative.
+            - **Stake Pool formula:** S_i = L * alpha * p * (1-q_i). High ability means lower dynamic collateral stakes.
+            Provide detailed, clean answers with markdown. Support math formulas cleanly.`;
+
+            // Keep clean chat history context
+            chatHistory.push({ role: 'user', parts: [{ text: messageText }] });
+            
+            // Limit history size for latency optimization
+            if (chatHistory.length > 10) chatHistory = chatHistory.slice(-10);
+
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text || "I was unable to formulate a response. Please ask again.";
+
+                // Replace loading bubble with markdown response
+                updateChatBubble(loadBubbleId, aiText);
+                chatHistory.push({ role: 'model', parts: [{ text: aiText }] });
+            } catch (err) {
+                console.error(err);
+                updateChatBubble(loadBubbleId, "Apologies, I encountered a communication problem with Gemini servers.");
+            }
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        let bubbleCounter = 0;
+        function appendChatBubble(sender, text, isLoading = false) {
+            const container = document.getElementById('co-pilot-chat');
+            const bubbleId = `bubble-${bubbleCounter++}`;
+            const div = document.createElement('div');
+            div.id = bubbleId;
+            div.className = "flex gap-2 items-start";
+
+            const isUser = sender === 'User';
+            const avatar = isUser ? 'US' : 'AI';
+            const avatarBg = isUser ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-300';
+            const bodyBg = isUser ? 'bg-indigo-950/40 border-indigo-500/20 text-indigo-100' : 'bg-slate-950 border-slate-850 text-slate-300';
+
+            div.innerHTML = `
+                <div class="h-6 w-6 rounded-full ${avatarBg} border flex items-center justify-center text-[10px] font-extrabold flex-shrink-0">${avatar}</div>
+                <div class="p-2.5 rounded-xl ${bodyBg} border leading-relaxed max-w-[85%] chat-text">
+                    ${isLoading ? `<div class="flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce"></span><span class="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span><span class="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span></div>` : marked.parse(text)}
+                </div>
+            `;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return bubbleId;
+        }
+
+        function updateChatBubble(bubbleId, text) {
+            const bubble = document.getElementById(bubbleId);
+            if (bubble) {
+                const textContainer = bubble.querySelector('.chat-text');
+                if (textContainer) {
+                    textContainer.innerHTML = marked.parse(text);
+                }
+            }
+            const container = document.getElementById('co-pilot-chat');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function fact(n) {
+            if (n <= 1) return 1;
+            let result = 1;
+            for (let i = 2; i <= n; i++) result *= i;
+            return result;
+        }
+
+        // Exact weight function for computing standard Shapley value elements
+        function shapleyWeight(sSize, n) {
+            return fact(sSize) * fact(n - sSize - 1) / fact(n);
+        }
+
+        // AR-CF Evaluator v(S) for a given sub-coalition subset
+        function evaluateAR_CF(subsetIndices) {
+            if (subsetIndices.length === 0) return 0;
+            let sumVal = 0;
+            for (let idx of subsetIndices) {
+                const w = workers[idx];
+                const contributionVal = w.correct ? w.ability : -w.ability;
+                sumVal += contributionVal;
+            }
+            return sumVal / subsetIndices.length;
+        }
+
+        // Generates combinations without worker i
+        function getSubsetsWithoutWorker(workerIndex) {
+            const indices = [];
+            for (let i = 0; i < workers.length; i++) {
+                if (i !== workerIndex) indices.push(i);
+            }
+            
+            const results = [[]];
+            for (let idx of indices) {
+                const len = results.length;
+                for (let j = 0; j < len; j++) {
+                    results.push([...results[j], idx]);
+                }
+            }
+            return results;
+        }
+
+        function computeSignedShapleyValues() {
+            const n = workers.length;
+            const values = [];
+
+            for (let i = 0; i < n; i++) {
+                const subsets = getSubsetsWithoutWorker(i);
+                let phi_i = 0;
+
+                for (let S of subsets) {
+                    const vWith = evaluateAR_CF([...S, i]);
+                    const vWithout = evaluateAR_CF(S);
+                    const weight = shapleyWeight(S.length, n);
+                    phi_i += weight * (vWith - vWithout);
+                }
+                values.push(phi_i);
+            }
+            return values;
+        }
+
+        function getThresholdAbility(alpha, beta) {
+            const mu = 0.65;
+            const numerator = alpha * mu;
+            const denominator = (alpha * mu) + ((beta * alpha) + 1) * (1 - mu);
+            return (numerator / (denominator || 1)).toFixed(2);
+        }
+
+        function renderWorkers() {
+            const container = document.getElementById("workers-list");
+            container.innerHTML = "";
+
+            workers.forEach((w, index) => {
+                const card = document.createElement("div");
+                card.className = "p-4 rounded-xl border transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 " + 
+                    (w.correct ? "bg-emerald-500/5 border-emerald-500/20" : "bg-rose-500/5 border-rose-500/20");
+
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs ${w.correct ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}">
+                            ${index + 1}
+                        </div>
+                        <div>
+                            <input type="text" value="${w.name}" onchange="updateWorkerName(${index}, this.value)" class="bg-transparent font-bold text-slate-200 text-sm focus:outline-none focus:border-b border-indigo-500 max-w-[120px]">
+                            <div class="text-[10px] text-slate-500 mt-0.5">Individual Skill Rating (q)</div>
+                        </div>
+                    </div>
+
+                    <!-- Ability Slider control -->
+                    <div class="flex-1 w-full sm:w-auto px-2 space-y-1">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-400">Ability: <strong class="mono text-slate-300">${w.ability.toFixed(2)}</strong></span>
+                        </div>
+                        <input type="range" min="0.05" max="0.95" step="0.05" value="${w.ability}" oninput="updateWorkerAbility(${index}, this.value)" class="w-full accent-indigo-500 h-1 bg-slate-800 rounded">
+                    </div>
+
+                    <!-- correctness toggle -->
+                    <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                        <div class="flex items-center gap-1">
+                            <span class="text-xs text-slate-400 mr-1">Submitted Label:</span>
+                            <button onclick="toggleWorkerCorrect(${index})" class="px-2.5 py-1 rounded text-xs font-bold transition-all ${w.correct ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'}">
+                                ${w.correct ? 'Correct' : 'Incorrect'}
+                            </button>
+                        </div>
+                        
+                        <button onclick="removeWorker(${index})" class="text-slate-500 hover:text-rose-400 transition-all p-1">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById("coalition-size-indicator").innerText = `Current Coalition Size: ${workers.length}`;
+        }
+
+        function updateWorkerName(index, name) {
+            workers[index].name = name;
+            updateSimulation();
+        }
+
+        function updateWorkerAbility(index, val) {
+            workers[index].ability = parseFloat(val);
+            updateSimulation();
+        }
+
+        function toggleWorkerCorrect(index) {
+            workers[index].correct = !workers[index].correct;
+            updateSimulation();
+        }
+
+        function removeWorker(index) {
+            if (workers.length <= 2) {
+                showToast("Keep at least 2 workers to test coalition theories!");
+                return;
+            }
+            workers.splice(index, 1);
+            updateSimulation();
+        }
+
+        function addWorker() {
+            if (workers.length >= 6) {
+                showToast("Max coalition limit reached! Shapley scaling requires small groups.");
+                return;
+            }
+            workers.push({
+                id: nextWorkerId++,
+                name: `Worker ${String.fromCharCode(65 + workers.length)}`,
+                ability: 0.6,
+                correct: true
+            });
+            updateSimulation();
+        }
+
+        // Preset database loader
+        function loadPreset(key) {
+            if (key === 'default') {
+                workers = [
+                    { id: 1, name: "Worker A", ability: 0.8, correct: true },
+                    { id: 2, name: "Worker B", ability: 0.5, correct: false },
+                    { id: 3, name: "Worker C", ability: 0.9, correct: true },
+                    { id: 4, name: "Worker D", ability: 0.3, correct: false },
+                    { id: 5, name: "Worker E", ability: 0.7, correct: false },
+                    { id: 6, name: "Worker F", ability: 0.6, correct: true }
+                ];
+            } else if (key === 'sloppyExpert') {
+                workers = [
+                    { id: 1, name: "Expert A", ability: 0.95, correct: false },
+                    { id: 2, name: "Expert B", ability: 0.9, correct: true },
+                    { id: 3, name: "Mid-Skill C", ability: 0.5, correct: true },
+                    { id: 4, name: "Lazy Expert D", ability: 0.85, correct: false }
+                ];
+            } else if (key === 'sybilInvasion') {
+                workers = [
+                    { id: 1, name: "Real User", ability: 0.8, correct: true },
+                    { id: 2, name: "Bot farm 1", ability: 0.2, correct: false },
+                    { id: 3, name: "Bot farm 2", ability: 0.15, correct: false },
+                    { id: 4, name: "Bot farm 3", ability: 0.25, correct: false },
+                    { id: 5, name: "Real User 2", ability: 0.75, correct: true }
+                ];
+            } else if (key === 'highQuality') {
+                workers = [
+                    { id: 1, name: "Worker A", ability: 0.9, correct: true },
+                    { id: 2, name: "Worker B", ability: 0.85, correct: true },
+                    { id: 3, name: "Worker C", ability: 0.8, correct: true },
+                    { id: 4, name: "Worker D", ability: 0.7, correct: true }
+                ];
+            }
+            updateSimulation();
+            showToast(`Preset: "${key}" loaded!`);
+        }
+
+        function updateSimulation() {
+            const alpha = parseFloat(document.getElementById("param-alpha").value);
+            const beta = parseFloat(document.getElementById("param-beta").value);
+            const basePrice = parseFloat(document.getElementById("param-price").value);
+
+            document.getElementById("alpha-val").innerText = alpha.toFixed(2);
+            document.getElementById("beta-val").innerText = beta.toFixed(2);
+            document.getElementById("price-val").innerText = `$${basePrice.toFixed(2)}`;
+
+            const qStar = getThresholdAbility(alpha, beta);
+            document.getElementById("q-star-indicator").innerText = qStar;
+
+            renderWorkers();
+
+            const phis = computeSignedShapleyValues();
+
+            let totalPenaltiesCollected = 0;
+            const absolutePenalties = [];
+            const absoluteTraditionalRewards = [];
+            
+            phis.forEach((phi, idx) => {
+                const w = workers[idx];
+                
+                let tradReward = 0;
+                if (w.correct) {
+                    const totalCorrectAbility = workers.reduce((sum, current) => sum + (current.correct ? current.ability : 0), 0);
+                    tradReward = totalCorrectAbility > 0 ? (w.ability / totalCorrectAbility) * basePrice : 0;
+                }
+                absoluteTraditionalRewards.push(tradReward);
+
+                if (phi < 0) {
+                    const penAmount = Math.abs(phi) * alpha * basePrice;
+                    absolutePenalties.push(penAmount);
+                    totalPenaltiesCollected += penAmount;
+                } else {
+                    absolutePenalties.push(0);
+                }
+            });
+
+            const redistributableBonus = beta * totalPenaltiesCollected;
+            const totalPositivePhis = phis.reduce((sum, val) => sum + (val > 0 ? val : 0), 0);
+
+            const netNaiRewards = [];
+            phis.forEach((phi, idx) => {
+                let finalNaiReward = 0;
+
+                if (phi > 0) {
+                    const baseShare = phi * basePrice;
+                    const bonusShare = totalPositivePhis > 0 ? (phi / totalPositivePhis) * redistributableBonus : 0;
+                    finalNaiReward = baseShare + bonusShare;
+                } else {
+                    finalNaiReward = -absolutePenalties[idx];
+                }
+                netNaiRewards.push(finalNaiReward);
+            });
+
+            renderVisualComparison(phis, absoluteTraditionalRewards, netNaiRewards, absolutePenalties);
+            renderSandboxInsights(phis, netNaiRewards, qStar);
+        }
+
+        function renderVisualComparison(phis, traditionalRewards, naiRewards, penalties) {
+            const graphContainer = document.getElementById("comparison-graph");
+            graphContainer.innerHTML = "";
+
+            workers.forEach((w, idx) => {
+                const phi = phis[idx];
+                const tradVal = traditionalRewards[idx];
+                const naiVal = naiRewards[idx];
+
+                const maxVal = Math.max(
+                    ...traditionalRewards, 
+                    ...naiRewards.map(Math.abs), 
+                    10
+                );
+                
+                const tradPercent = Math.min((tradVal / maxVal) * 100, 100);
+                const naiPercent = Math.min((Math.abs(naiVal) / maxVal) * 100, 100);
+
+                const barElement = document.createElement("div");
+                barElement.className = "space-y-1.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800/40";
+                
+                const isSloppyPenalty = !w.correct && w.ability >= 0.7;
+
+                barElement.innerHTML = `
+                    <div class="flex items-center justify-between text-xs font-semibold">
+                        <span class="text-slate-200 flex items-center gap-1.5">
+                            ${w.name} 
+                            <span class="text-[10px] mono text-slate-400 bg-slate-850 px-1 rounded">q=${w.ability.toFixed(2)}</span>
+                            ${w.correct ? '<span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-1 py-0.2 rounded uppercase">Correct</span>' : '<span class="text-[9px] font-bold text-rose-400 bg-rose-500/10 px-1 py-0.2 rounded uppercase">Incorrect</span>'}
+                        </span>
+                        <div class="flex gap-2 mono">
+                            <span class="text-slate-500" title="Traditional reward">Trad: $${tradVal.toFixed(2)}</span>
+                            <span class="${naiVal >= 0 ? 'text-emerald-400' : 'text-rose-400'} font-bold" title="NAI absolute net reward">
+                                NAI: ${naiVal >= 0 ? '+' : ''}$${naiVal.toFixed(2)}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1 mt-1">
+                        <!-- Traditional Payout Bar -->
+                        <div class="w-full bg-slate-950 rounded-full h-2 overflow-hidden flex">
+                            <div class="bg-slate-600 transition-all duration-300 rounded-full" style="width: ${tradPercent}%"></div>
+                        </div>
+                        
+                        <!-- NAI Reward / Penalty Bar -->
+                        <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden flex">
+                            <div class="${naiVal >= 0 ? 'bg-gradient-to-r from-indigo-500 to-emerald-500' : 'bg-gradient-to-r from-rose-500 to-rose-600'} transition-all duration-300 rounded-full" 
+                                 style="width: ${naiPercent}%"></div>
+                        </div>
+                    </div>
+                    
+                    ${isSloppyPenalty ? `
+                        <div class="text-[9px] text-rose-400/80 bg-rose-500/5 p-1 rounded border border-rose-500/10 flex items-center gap-1">
+                            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <span><strong>Greater Ability Penalty Applied:</strong> Experienced worker labeled incorrectly. Penalty increased.</span>
+                        </div>
+                    ` : ''}
+                `;
+                graphContainer.appendChild(barElement);
+            });
+        }
+
+        function renderSandboxInsights(phis, netNaiRewards, qStar) {
+            const container = document.getElementById("sandbox-insights");
+            
+            const lowAbilityIncorrect = workers.filter(w => !w.correct && w.ability <= parseFloat(qStar)).length;
+            const highAbilityIncorrect = workers.filter(w => !w.correct && w.ability > parseFloat(qStar)).length;
+            const totalGoodRedistrib = netNaiRewards.filter(r => r > 0).length;
+
+            let logHtml = "";
+
+            if (lowAbilityIncorrect > 0) {
+                logHtml += `
+                    <div class="flex gap-2 items-start text-indigo-300">
+                        <span class="text-indigo-400 font-bold">▶</span>
+                        <span>Deterring low-effort contributors: <strong>${lowAbilityIncorrect} low-ability workers</strong> failed. Their dynamic NAI utility fell below zero, protecting platform resources from Sybils.</span>
+                    </div>
+                `;
+            }
+
+            if (highAbilityIncorrect > 0) {
+                logHtml += `
+                    <div class="flex gap-2 items-start text-rose-300">
+                        <span class="text-rose-400 font-bold">▶</span>
+                        <span>Greater Ability, Greater Responsibility: <strong>${highAbilityIncorrect} highly competent worker(s)</strong> answered incorrectly. They incurred heavier penalties because their high-ability rating diluted the coalition's accuracy expectation.</span>
+                    </div>
+                `;
+            }
+
+            if (totalGoodRedistrib > 0 && lowAbilityIncorrect + highAbilityIncorrect > 0) {
+                logHtml += `
+                    <div class="flex gap-2 items-start text-emerald-300">
+                        <span class="text-emerald-400 font-bold">▶</span>
+                        <span>Synergized bonus redistribution: Part of the collected penalties was directly distributed as a merit reward to high-quality workers. Excellent performance pays out more!</span>
+                    </div>
+                `;
+            }
+
+            if (logHtml === "") {
+                logHtml = `
+                    <div class="text-slate-400 italic text-center py-4">
+                        All worker inputs match perfectly. Positive rewards distributed successfully. Adjust sliders or toggle correctness to simulate malicious behavior.
+                    </div>
+                `;
+            }
+
+            container.innerHTML = logHtml;
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const msgSpan = document.getElementById("toast-message");
+            msgSpan.innerText = message;
+            
+            toast.className = toast.className.replace("translate-y-24 opacity-0", "translate-y-0 opacity-100");
+            setTimeout(() => {
+                toast.className = toast.className.replace("translate-y-0 opacity-100", "translate-y-24 opacity-0");
+            }, 3000);
+        }
+
+        function copyToClipboard() {
+            const bibtexText = document.getElementById("bibtex-block").innerText;
+            
+            const textarea = document.createElement("textarea");
+            textarea.value = bibtexText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Citation Copied to Clipboard!");
+            } catch (err) {
+                showToast("Failed to copy automatically.");
+            }
+            document.body.removeChild(textarea);
+        }
+
+        window.onload = function() {
+            updateSimulation();
+        }
+    </script>
+</body>
+</html>
